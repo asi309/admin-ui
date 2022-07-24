@@ -38,7 +38,6 @@ const Pagination = ({ onPageChange, total, page, numRows, siblings = 1 }) => {
         return (
           <li
             className={`pagination-btn ${pageNum === page ? 'selected' : ''}`}
-            style={pageNum === page ? { backgroundColor: 'grey' } : {}}
             onClick={() => onPageChange(pageNum)}
             key={idx}
           >

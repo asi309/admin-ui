@@ -82,7 +82,7 @@ const DataRow = ({
 
   return (
     <tr>
-      <td>
+      <td className='checkbox'>
         <input
           type="checkbox"
           id={data.id}
@@ -93,7 +93,7 @@ const DataRow = ({
       {tableData.map((dataItem, idx) => {
         if (inEditMode.status && inEditMode.rowKey === data.id) {
           return (
-            <td key={idx}>
+            <td key={idx} className="edit-item">
               <input
                 type="text"
                 id={`${keys[idx]}`}
@@ -110,7 +110,7 @@ const DataRow = ({
         }
         return <td key={idx}>{dataItem}</td>;
       })}
-      <td>
+      <td className='actions'>
         {inEditMode.status && inEditMode.rowKey === data.id ? (
           <button
             onClick={() => {
@@ -123,6 +123,7 @@ const DataRow = ({
                 return newState;
               });
             }}
+            className="save"
           >
             Save
           </button>
@@ -140,6 +141,7 @@ const DataRow = ({
                   state.status && state.rowKey === data.id ? null : data.id,
               }))
             }
+            className="edit"
           >
             Edit
           </button>
@@ -154,6 +156,7 @@ const DataRow = ({
               return newState;
             });
           }}
+          className="delete"
         >
           Delete
         </button>

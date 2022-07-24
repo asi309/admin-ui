@@ -71,7 +71,7 @@ const AdminTable = ({
       const newState = [...state];
       return newState.filter((item) => selectedIds.indexOf(item.id) < 0);
     });
-    
+
     setSelectedIds(() => []);
   };
 
@@ -87,7 +87,7 @@ const AdminTable = ({
         <table className="table">
           <thead>
             <tr>
-              <th>
+              <th className="checkbox">
                 <input
                   type="checkbox"
                   checked={isAllSelected()}
@@ -117,7 +117,9 @@ const AdminTable = ({
         </table>
       </div>
       <div className="controls-container">
-        <button onClick={handleAllDelete}>Delete Selected</button>
+        <div className="btn-container">
+          <button onClick={handleAllDelete}>Delete Selected</button>
+        </div>
         <Pagination
           page={page}
           total={total}
